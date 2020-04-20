@@ -178,3 +178,13 @@ const styles = StyleSheet.create({
 ## 1.1 Loading Screen
 
 - react와 똑같이 js파일을 만들고 export, import 해서 사용할 수 있음
+
+## 1.2 Getting the Location
+
+- expo API인 Location 가져오기
+- try-catch 문에서 error catch를 확인해보고 싶다면 try문 위에 `throw Error();` 를 입력하면 바로 catch문으로 이동한다.
+
+## 1.3 Askiing for Permissions
+
+- https://docs.expo.io/versions/v37.0.0/sdk/location/#locationgetcurrentpositionasyncoptions 에서
+- Location.getCurrentPositionAsync(options) 이용
