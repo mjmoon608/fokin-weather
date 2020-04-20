@@ -2,6 +2,8 @@
 
 ## Learning React Native by Building a Foking Weather App
 
+# 0 Introduction
+
 ## 설치 전 필요한 것들
 
 node.js 버전 10이상
@@ -175,6 +177,8 @@ const styles = StyleSheet.create({
 - 늘 flex로 레이아웃을 코딩하는 것을 권장함
   - 누군가 사이즈가 좀 더 큰 폰, 작은 폰을 갖고 있거나, iPad에서 열어본다거나, 폰을 회전시킨다거나 할때 flex box로 만들었다면 자동으로 맞춰질 거임.
 
+# 1 Logic
+
 ## 1.1 Loading Screen
 
 - react와 똑같이 js파일을 만들고 export, import 해서 사용할 수 있음
@@ -193,3 +197,7 @@ const styles = StyleSheet.create({
 
 - openweather map api를 이용할 것(https://openweathermap.org/api)
 - tpqms608@naver.com // mnb30217
+
+# 2 Styles
+
+## 2.0 Displaying Temperature
