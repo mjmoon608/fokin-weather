@@ -127,3 +127,50 @@ fokin-weather 앱에서는 blank를 선택함 zero에서부터 시작할 거기 
   - 리엑트 네이티브는 이런 규칙들이 있음.
   - 이런 룰이 존재하는 이유는 브릿지 때문임.
   - CSS와 조금씩 다른 구석이 있음
+
+## 1.0 Layouts with Flexbox in React Native
+
+- 리엑트 네이티브의 레이아웃에 대한 규칙들(expo에 관한것이 아니고 모든것에 적용되는 리엑트 네이티브 규칙)
+
+```
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.Text}>Minjong1</Text>
+      <Text style={styles.Text}>Minjong2</Text>
+    </View>
+  );
+}
+```
+
+    - minjong2 라는 텍스트를 추가하게 되면 minjong1의 아래로 감
+    - 리엑트 네이티브에서 모든 flex box의 디폴트는 column이기 때문
+        - ```flexDirection:column```
+        - 웹사이트에서 모든 flex box의 디폴트는 row임 -> 모바일과의 차이점
+        - 모바일 폰에서는 대게 모든게 서로 아래에 있기 때문임.
+        - 물론 원한다면 ```flexDirection:row``` 이렇게 다른 방식으로 변경 할 수 있음.
+
+```
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+  },
+  yellowView: {
+    flex: 1,
+    backgroundColor: "yellow",
+  },
+  blueView: {
+    flex: 2,
+    backgroundColor: "blue",
+  },
+});
+```
+
+- `flex: 1` : 웹사이트에서는 flex: 1 or flex: 2 이렇게 하지 않음
+- 또한 flex: 1 은 모든 공간 사용가능하다는 걸 의미함.
+- 만약 전체 공간을 다 차지하고 싶다면, flex: 1
+- 여러 형제들을 가지면(예를 들면 여기에서는 yellowView, blueView) flex: 2 처럼 값을 조정하면 됨
+- 자리 경쟁하는 형제들이고, 더 큰 값을 갖는 애가 대부분의 자리를 차지한다고 생각하면 됨.
+
+- 늘 flex로 레이아웃을 코딩하는 것을 권장함
+  - 누군가 사이즈가 좀 더 큰 폰, 작은 폰을 갖고 있거나, iPad에서 열어본다거나, 폰을 회전시킨다거나 할때 flex box로 만들었다면 자동으로 맞춰질 거임.
