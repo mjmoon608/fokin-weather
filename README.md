@@ -188,3 +188,8 @@ const styles = StyleSheet.create({
 
 - https://docs.expo.io/versions/v37.0.0/sdk/location/#locationgetcurrentpositionasyncoptions 에서
 - Location.getCurrentPositionAsync(options) 이용
+
+## 1.4 Getting the Weather
+
+- openweather map api를 이용할 것(https://openweathermap.org/api)
+- tpqms608@naver.com // mnb30217

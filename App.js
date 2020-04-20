@@ -2,10 +2,19 @@ import React from "react";
 import Loading from "./Loding";
 import * as Location from "expo-location";
 import { Alert } from "react-native";
+import axios from "axios";
+
+const API_KEY_weather = "7bb28c9272b214b71c05aa0c22c592b4";
 
 export default class App extends React.Component {
   state = {
     isLoading: true,
+  };
+  getWeather = async (latitude, longitude) => {
+    const { data } = await axios.get(
+      `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY_weather}`
+    );
+    console.log(data);
   };
   getLocation = async () => {
     try {
@@ -13,7 +22,7 @@ export default class App extends React.Component {
       const {
         coords: { latitude, longitude },
       } = await Location.getCurrentPositionAsync();
-      // Send to API and get weather
+      this.getWeather(latitude, longitude);
       this.setState({ isLoading: false });
     } catch (error) {
       Alert.alert("위치를 찾을 수 없습니다.", "위치 설정을 확인해 주세요.");
