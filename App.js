@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Minjong</Text>
+      <Text style={styles.Text}>Minjong</Text>
     </View>
   );
 }
@@ -12,8 +12,11 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "red",
     alignItems: "center",
     justifyContent: "center",
+  },
+  Text: {
+    color: "white",
   },
 });
