@@ -1,7 +1,7 @@
 import React from "react";
 import Loading from "./Loding";
 import * as Location from "expo-location";
-import { Alert } from "react-native";
+import { Alert, TimePickerAndroid } from "react-native";
 import axios from "axios";
 import Weather from "./Weather";
 
@@ -15,7 +15,7 @@ export default class App extends React.Component {
     const { data } = await axios.get(
       `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${API_KEY_weather}&units=metric`
     );
-    console.log(data);
+    this.setState({ isLoading: false, temp: data.main.temp });
   };
   getLocation = async () => {
     try {
@@ -24,7 +24,6 @@ export default class App extends React.Component {
         coords: { latitude, longitude },
       } = await Location.getCurrentPositionAsync();
       this.getWeather(latitude, longitude);
-      this.setState({ isLoading: false });
     } catch (error) {
       Alert.alert("위치를 찾을 수 없습니다.", "위치 설정을 확인해 주세요.");
     }
@@ -33,7 +32,7 @@ export default class App extends React.Component {
     this.getLocation();
   }
   render() {
-    const { isLoading } = this.state;
-    return isLoading ? <Loading /> : <Weather />;
+    const { isLoading, temp } = this.state;
+    return isLoading ? <Loading /> : <Weather temp={Math.round(temp)} />;
   }
 }
