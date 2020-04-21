@@ -6,6 +6,8 @@
 
 ## 설치 전 필요한 것들
 
+## 2020.04.21 : 나중에 기상청 날씨 API로 바꿔보자
+
 node.js 버전 10이상
 npm 버전 6 이상
 윈도우, 리눅스 - 시뮬레이터를 가진 안드로이드 스튜디오가 있어야함
@@ -201,3 +203,28 @@ const styles = StyleSheet.create({
 # 2 Styles
 
 ## 2.0 Displaying Temperature
+
+## 2.2 Icon and Styling
+
+- expo/vector-icons : expo init 으로 템플릿 프로젝트에 디폴트로 인스톨 되어짐 -> https://docs.expo.io/versions/v37.0.0/guides/icons/
+- https://expo.github.io/vector-icons/ -> 여기서 import 할 대상 찾아서 import 시키기
+
+## 2.3 Background Gradient
+
+```
+expo : 이 시스템에서 스크립트를 실행할 수 없으므로 C:\Users\DP_Bell\AppData\Roaming\npm\expo.ps1 파일을 로드할 수 없습니다. 자세한 내용은 about_Execution_Policies (https://go.microsoft.com/fwlink/?LinkID=135170)를 참조하십시오
+ 위치 줄:1 문자:1
++ expo install expo-linear-gradient
+```
+
+- 위와 같은 Execution_Policies 스크립트오류가 발생했을 경우
+- Get-ExecutionPolicy 로 현재 상태를 확인하고
+- Set-ExecutionPolicy [알맞는 Policy 명 선택] 으로 변경후 -> Set-ExecutionPolicy 로 검색하면 Policy 옵션 확인 가능
+- 다시 Get-ExecutionPolicy로 Policy가 바뀌었는지 확인
+
+* LinearGradient 사용
+* https://docs.expo.io/versions/v37.0.0/sdk/linear-gradient/ 사용법 확인
+* yarn 스크립트 오류가 발생한다면 npm install -g yarn 실행
+
+* react native 에 Statusbar 라는 컴포넌트가 있음. 이건 View 안에 넣어도 CSS에 영향을 주지 않음. 화면상에 표시가 안된다는 뜻임
+* `<StatusBar barStyle="dark-content" />`

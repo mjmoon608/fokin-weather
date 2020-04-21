@@ -23,6 +23,7 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "노마드코더 리엑트네이티브 날씨어플 만들기"
   }
 }
